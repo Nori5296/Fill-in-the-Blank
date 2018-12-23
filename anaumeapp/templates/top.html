@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="https://templates.pingendo.com/flat/flat.css" type="text/css"> </head>
+
+<body>
+  <nav class="navbar navbar-expand-md bg-primary navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <i class="fa d-inline fa-lg fa-cloud"></i>
+        <b>Fill-in-the-Blank Question</b>
+      </a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar2SupportedContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse text-center justify-content-end" id="navbar2SupportedContent">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fa d-inline fa-lg fa-bookmark-o"></i> 過去に解いた問題</a>
+          </li>
+        </ul>
+        <a class="btn navbar-btn ml-2 text-white btn-secondary">
+          <i class="fa d-inline fa-lg fa-user-circle-o"></i> ログイン</a>
+      </div>
+    </div>
+  </nav>
+  
+  <div class="py-5">
+    <div class="container">
+
+      {% if user.is_authenticated %}
+      <div class="row">
+        <div class="col-md-12">
+            <p>こんにちは。 {{ user.username }}さん。
+            <a href="{% url 'logout' %}">ログアウト</a></p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <form class="form-inline d-flex">
+            <div class="input-group">
+              <textarea class="form-control" id="exampleTextarea" rows="5" cols="100"></textarea>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="row">
+          <div class="col-md-12 py-2">
+            <a class="btn btn-primary" href="#">穴埋め問題作成 </a>
+          </div>
+      </div>
+
+      {% else %}
+      <div class="row">
+          <div class="col-md-12 py-2">
+              <p>You are not logged in</p>
+              <a href="{% url 'login' %}">login</a>
+          </div>
+      </div>
+      {% endif %}
+    
+    </div>
+  </div>
+
+  <div class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12"> </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 py-1"> </div>
+      </div>
+    </div>
+  </div>
+  <div class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12"> </div>
+      </div>
+    </div>
+  </div>
+  <pingendo onclick="window.open('https://pingendo.com/', '_blank')" style="cursor:pointer;position: fixed;bottom: 10px;right:10px;padding:4px;background-color: #00b0eb;border-radius: 8px; width:250px;display:flex;flex-direction:row;align-items:center;justify-content:center;font-size:14px;color:white">Made with Pingendo Free&nbsp;&nbsp;
+    <img src="https://pingendo.com/site-assets/Pingendo_logo_big.png" class="d-block" alt="Pingendo logo" height="16">
+  </pingendo>
+</body>
+
+</html>
